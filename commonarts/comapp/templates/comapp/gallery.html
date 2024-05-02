@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {%load static%}
+    <link rel="stylesheet" href="{%static 'comapp/style.css'%}">
+    <title>CommonARTS-Gallery</title>
+</head>
+<body>
+    {%load static%}
+    <div class="background">
+        <header>
+            <img src="{%static 'comapp/mainimages/CommonARTS.svg'%}" alt="" class="Logo">
+            <div class="links_box">
+                <a href="/" class="links">Home</a>
+                <a href="{%url 'gallery'%}" class="links">Gallery</a>
+                <a href="{%url 'post'%}" class="links">Post</a>
+                <a href="{{'/accounts/login/'}}" class="links">Login</a>
+                <a href="{%url 'register'%}" class="links">Register</a>
+                <a href="{%url 'logout'%}" class="links">Exit</a>
+            </div>
+        </header>
+        <main>
+            {% if user.is_authenticated%}
+            <h1 class="Hello">Hello {{user.username}}</h1>
+            {%endif%}
+            <div class="main_line"></div>
+            <img src="{%static 'comapp/mainimages/Last Works.svg'%}" alt="" class="main_last">
+            <div class="main_line"></div>
+            <div class="images">
+                {%for post in posts%}
+                <div class="last_post">
+                    <h2 class="last_post_text">{{post.title}}</h2>
+                    <img src="{{post.image.url}}" class="last_img">
+                    <h2 class="last_post_text">{{post.user}}</h2>
+                    <p class="last_post_text2">{{post.text}}</p>
+                </div>
+                {%endfor%}
+            </div>
+        </main>
+    </div>
+</body>

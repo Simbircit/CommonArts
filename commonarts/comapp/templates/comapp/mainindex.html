@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {%load static%}
+    <link rel="stylesheet" href="{%static 'comapp/style.css'%}">
+    <title>CommonARTS</title>
+</head>
+<body>
+    {%load static%}
+    <div class="background">
+        <header>
+            <img src="{%static 'comapp/mainimages/CommonARTS.svg'%}" alt="" class="Logo">
+            <div class="links_box">
+                <a href="/" class="links">Home</a>
+                <a href="gallery/" class="links">Gallery</a>
+                <a href="post/" class="links">Post</a>
+                <a href="{{'accounts/login/'}}" class="links">Login</a>
+                <a href="register/" class="links">Register</a>
+                <a href="logout/" class="links">Exit</a>
+            </div>
+        </header>
+        <main>
+            {% if user.is_authenticated%}
+            <h1 class="Hello">Hello {{user.username}}</h1>
+            {%endif%}
+            <div class="main_about">
+                <img src="{%static 'comapp/mainimages/Back.png'%}" alt="" class="main_about_img">
+                <p class="main_about_text">
+                    О НАС: Здесь можно выкладывать свои изображения, а так же комментировать. Ниже будут представленны 
+                    шесть выбранных администрацией изображений. Новые и другие изображения вы можете увидеть в галлерее. 
+                    Для выкладывания изображений и комментирования нужно зарегестрироваться и войти  
+                </p>
+            </div>
+            <div class="main_line"></div>
+            <img src="{%static 'comapp/mainimages/Last Works.svg'%}" alt="" class="main_last">
+            <div class="main_line"></div>
+            <div class="images">
+                <img src="{%static 'comapp/mainimages/Elefff.jpg'%}" alt="" class="last_img">
+                <img src="{%static 'comapp/mainimages/elp.jpg'%}" alt="" class="last_img">
+                <img src="{%static 'comapp/mainimages/Potap.jpg'%}" alt="" class="last_img">
+                <img src="{%static 'comapp/mainimages/tomato.jpg'%}" alt="" class="last_img">
+                <img src="{%static 'comapp/mainimages/hatman.jpg'%}" alt="" class="last_img">
+                <img src="{%static 'comapp/mainimages/scellet.jpg'%}" alt="" class="last_img">
+            </div>
+        </main>
+    </div>
+</body>
+</html>

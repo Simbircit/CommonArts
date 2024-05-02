@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    {%load static%}
+    <link rel="stylesheet" href="{%static 'comapp/style.css'%}">
+</head>
+<body>
+    {%load static%}
+    <header>
+        <img src="{%static 'comapp/mainimages/CommonARTS.svg'%}" alt="" class="Logo">
+        <div class="links_box">
+            <a href="/" class="links">Home</a>
+            <a href="/gallery/" class="links">Gallery</a>
+            <a href="/post/" class="links">Post</a>
+            <a href="{{'/accounts/login/'}}" class="links">Login</a>
+            <a href="/register/" class="links">Register</a>
+            <a href="/logout/" class="links">Exit</a>
+        </div>
+    </header>
+    <div class="BlockFill">
+        <form method="post">
+            {% csrf_token%}
+            {{ form}}
+            <button type="submit" value="send">Register</button>
+        </form>
+    </div>
+</body>
+</html>
